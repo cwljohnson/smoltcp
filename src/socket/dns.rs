@@ -297,7 +297,8 @@ impl<'a> Socket<'a> {
             state: State::Pending(PendingQuery {
                 name: Vec::from_slice(raw_name).map_err(|_| StartQueryError::NameTooLong)?,
                 type_: query_type,
-                txid: cx.rand().rand_u16(),
+                // fixed query ID of 0
+                txid: 0,
                 port: cx.rand().rand_source_port(),
                 delay: RETRANSMIT_DELAY,
                 timeout_at: None,
