@@ -412,10 +412,10 @@ impl<'a> Socket<'a> {
             return;
         }
 
-        if p.question_count() != 1 {
-            net_trace!("bad question count {:?}", p.question_count());
-            return;
-        }
+        // if p.question_count() != 1 {
+        //     net_trace!("bad question count {:?}", p.question_count());
+        //     return;
+        // }
 
         // Find pending query
         for q in self.queries.iter_mut().flatten() {
